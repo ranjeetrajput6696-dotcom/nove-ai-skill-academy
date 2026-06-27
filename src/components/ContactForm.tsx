@@ -1,5 +1,5 @@
 import { useState, FormEvent } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, ExternalLink } from 'lucide-react';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
@@ -48,33 +48,47 @@ export default function ContactForm() {
             </div>
 
             <div className="space-y-5" id="contact-details-list">
-              <div className="flex items-center gap-4 text-xs" id="contact-detail-email">
-                <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[#06B6D4] flex-shrink-0">
+              <a
+                href="mailto:admissions@novaaiacademy.com"
+                className="flex items-center gap-4 text-xs group/contact hover:opacity-95 transition-all cursor-pointer"
+                id="contact-detail-email"
+              >
+                <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[#06B6D4] flex-shrink-0 group-hover/contact:bg-white/20 transition-colors">
                   <Mail size={16} />
                 </span>
                 <div>
                   <span className="block font-semibold opacity-75 uppercase text-[9px] tracking-wider">Email Us</span>
-                  <span className="font-bold">admissions@novaaiacademy.com</span>
+                  <span className="font-bold underline decoration-[#06B6D4]/30 group-hover/contact:decoration-[#06B6D4] transition-all decoration-2 underline-offset-2">admissions@novaaiacademy.com</span>
                 </div>
-              </div>
-              <div className="flex items-center gap-4 text-xs" id="contact-detail-phone">
-                <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[#06B6D4] flex-shrink-0">
+              </a>
+              <a
+                href="tel:+918810449584"
+                className="flex items-center gap-4 text-xs group/contact hover:opacity-95 transition-all cursor-pointer"
+                id="contact-detail-phone"
+              >
+                <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[#06B6D4] flex-shrink-0 group-hover/contact:bg-white/20 transition-colors">
                   <Phone size={16} />
                 </span>
                 <div>
                   <span className="block font-semibold opacity-75 uppercase text-[9px] tracking-wider">Call Directly</span>
-                  <span className="font-bold">+1 (800) NOVA-AI</span>
+                  <span className="font-bold underline decoration-[#06B6D4]/30 group-hover/contact:decoration-[#06B6D4] transition-all decoration-2 underline-offset-2">+91 8810449584</span>
                 </div>
-              </div>
-              <div className="flex items-center gap-4 text-xs" id="contact-detail-location">
-                <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[#06B6D4] flex-shrink-0">
+              </a>
+              <a
+                href="https://maps.google.com/?q=A11,+First+Floor+Kamla-Nagar,+Delhi+7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 text-xs group/contact hover:opacity-95 transition-all cursor-pointer"
+                id="contact-detail-location"
+              >
+                <span className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-[#06B6D4] flex-shrink-0 group-hover/contact:bg-white/20 transition-colors">
                   <MapPin size={16} />
                 </span>
                 <div>
                   <span className="block font-semibold opacity-75 uppercase text-[9px] tracking-wider">Campus</span>
-                  <span className="font-bold">Silicon Valley Tech Hub, California</span>
+                  <span className="font-bold underline decoration-[#06B6D4]/30 group-hover/contact:decoration-[#06B6D4] transition-all decoration-2 underline-offset-2">A11, First Floor Kamla-Nagar, Delhi 7</span>
                 </div>
-              </div>
+              </a>
             </div>
 
             <div className="border-t border-white/15 pt-6 text-[10px] text-[#bcceff]" id="contact-left-footer">
@@ -183,6 +197,43 @@ export default function ContactForm() {
             )}
           </div>
 
+        </div>
+
+        {/* Google Map Embed Section */}
+        <div className="mt-12 bg-white rounded-3xl border border-[#c3c6d5] overflow-hidden premium-card-shadow" id="campus-map-wrapper">
+          <div className="p-6 md:p-8 border-b border-[#c3c6d5]/60 flex flex-col md:flex-row md:items-center justify-between gap-4" id="map-header">
+            <div className="space-y-1">
+              <h3 className="font-display font-extrabold text-lg text-[#1E3A8A] flex items-center gap-2">
+                <MapPin size={18} className="text-[#06B6D4]" />
+                Interactive Campus Map
+              </h3>
+              <p className="font-sans text-xs text-[#434653]">
+                Visit us at our premier learning academy in Kamla Nagar, Delhi.
+              </p>
+            </div>
+            <a
+              href="https://maps.google.com/?q=A11,+First+Floor+Kamla-Nagar,+Delhi+7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-[#1E3A8A] hover:bg-[#1D4ED8] px-4 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all self-start md:self-auto cursor-pointer"
+            >
+              Get Directions on Google Maps
+              <ExternalLink size={12} />
+            </a>
+          </div>
+          <div className="w-full h-[350px] md:h-[450px] bg-[#f0eded] relative" id="map-iframe-container">
+            <iframe
+              title="NovaAI Academy Campus Location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.9679123846666!2d77.20235377618957!3d28.675640275640523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd80e722c8cb%3A0x6bbf510e11894d8d!2sKamla%20Nagar%2C%20Delhi%2C%20110007!5e0!3m2!1sen!2sin!4v1719480000000!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0 w-full h-full"
+            ></iframe>
+          </div>
         </div>
 
       </div>
