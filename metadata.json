@@ -1,0 +1,6 @@
+{
+  "name": "NovaAI Academy",
+  "description": "Leading AI and technology skills academy offering advanced industry-led syllabus tracks, graphic design, digital marketing, and generative AI orchestration pathways.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
